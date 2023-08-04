@@ -1,6 +1,6 @@
 require("dotenv").config()
 const { network, ethers } = require("hardhat")
-const { developmentChanins, networkConfig } = require("../helper-hardhat-config")
+const { developmentChains, networkConfig } = require("../helper-hardhat-config")
 const { verify } = require("../utils/verify")
 
 const VRF_SUB_FUND_AMOUNT = ethers.utils.parseEther("30")
@@ -11,7 +11,7 @@ module.exports = async function ({ getNamedAccounts, deployments }) {
     const chainId = network.config.chainId
     let vrfCoordinatorV2Address, subscriptionId
 
-    if (developmentChanins.includes(network.name)) {
+    if (developmentChains.includes(network.name)) {
         const vrfCoordinatorV2Mock = await ethers.getContract("VRFCoordinatorV2Mock")
         vrfCoordinatorV2Address = vrfCoordinatorV2Mock.address
 
@@ -56,13 +56,14 @@ module.exports = async function ({ getNamedAccounts, deployments }) {
         waitConfirmations: network.config.blockCofirmations || 1,
     })
 
-    if (!developmentChanins.includes(network.name) && process.env.ETHERSCAN_API_KEY) {
+    if (!developmentChains.includes(network.name) && process.env.ETHERSCAN_API_KEY) {
         console.log("Verifying...")
         await verify(raffle.address, args)
     }
+    console.log("Raffle Deployed!");
     console.log("----------------------------------------------")
 
-    
+     
 }
 
 module.exports.tags = ["all", "raffle"]
