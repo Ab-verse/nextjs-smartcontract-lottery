@@ -1,66 +1,27 @@
-require("@nomiclabs/hardhat-waffle")
-require("@nomiclabs/hardhat-etherscan")
-require("hardhat-deploy")
-require("solidity-coverage")
-require("hardhat-gas-reporter")
-require("hardhat-contract-sizer")
-require("dotenv").config()
+require("@nomicfoundation/hardhat-toolbox");
+require("@nomicfoundation/hardhat-verify");
+require("dotenv").config();
 
+const SEPOLIA_RPC_URL = process.env.SEPOLIA_RPC_URL;
 
-const SEPOLIA_RPC_URL = process.env.SEPOLIA_RPC_URL 
-const PRIVATE_KEY = process.env.PRIVATE_KEY 
-const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY
-const COINMARKETCAP_API_KEY = process.env.COINMARKETCAP_API_KEY 
+const SEPOLIA_PRIVATE_KEY = process.env.SEPOLIA_PRIVATE_KEY;
 
+const etherscanApiKey = process.env.etherscanApiKey;
 
 module.exports = {
-    defaultNetwork: "hardhat",
-    networks: {
-        hardhat: {
-            // // If you want to do some forking, uncomment this
-            // forking: {
-            //   url: MAINNET_RPC_URL
-            // }
-            chainId: 31337,
-        },
-        localhost: {
-            chainId: 31337,
-        },
-        sepolia: {
-            url: SEPOLIA_RPC_URL,
-            accounts: [PRIVATE_KEY],
-            //   accounts: {
-            //     mnemonic: MNEMONIC,
-            //   },
-            saveDeployments: true,
-            chainId: 11155111,
-        },
+  solidity: "0.8.21",
+  networks: {
+    sepolia: {
+      url: SEPOLIA_RPC_URL,
+      accounts: [SEPOLIA_PRIVATE_KEY],
     },
+  },
+  etherscan: {
+    // Your API key for Etherscan
+    // Obtain one at https://etherscan.io/
+    apiKey: etherscanApiKey,
+  },
 
-    namedAccounts: {
-        deployer: {
-            default: 0, // here this will by default take the first account as deployer
-            1: 0, // similarly on mainnet it will take the first account as deployer. Note though that depending on how hardhat network are configured, the account 0 on one network can be different than on another
-        },
-        player: {
-            default: 1,
-        },
-    },
-    
-    gasReporter: {
-        enabled: (process.env.REPORT_GAS) ? true : false,
-        currency: "USD",
-        outputFile: "gas-report.txt",
-        noColors: true,
-        coinmarketcap: COINMARKETCAP_API_KEY,
-        // token: "MATIC"
-    },
-    solidity: {
-        compilers: [
-            {
-                version: "0.8.7",
-            },
-        ]
-    }
-
-}
+  // Verify contract on etherscan
+  // npx hardhat verify --network sepolia 0x66945f9f1dfab74599ae39e6dd681ada5dc3893a "0x8103B0A8A00be2DDC778e6e7eaa21791Cd364625" "100000000000000000" "0x474e34a077df58807dbe9c96d3c009b23b3c6d0cce433e59bbf5b34f823bc56c" "5017" "5000000" "120"
+};
