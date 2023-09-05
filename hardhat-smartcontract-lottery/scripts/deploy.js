@@ -1,18 +1,13 @@
-async function main() {
-    const vrfCoordinatorV2Address = "0x8103B0A8A00be2DDC778e6e7eaa21791Cd364625"
-    const raffleEntranceFee = "100000000000000000"
-    const gasLane = "0x474e34a077df58807dbe9c96d3c009b23b3c6d0cce433e59bbf5b34f823bc56c"
-    const subscriptionId = "4990"
-    const callbackGasLimit = "5000000"
-    const keepersUpdateInterval = "120"
+const SepoliaConfig = require("../helper-hardhat-config")
 
+async function main() {
     const arguments = [
-        vrfCoordinatorV2Address,
-        raffleEntranceFee,
-        gasLane,
-        subscriptionId,
-        callbackGasLimit,
-        keepersUpdateInterval,
+        SepoliaConfig.vrfCoordinatorV2Address,
+        SepoliaConfig.raffleEntranceFee,
+        SepoliaConfig.gasLane,
+        SepoliaConfig.subscriptionId,
+        SepoliaConfig.callbackGasLimit,
+        SepoliaConfig.keepersUpdateInterval,
     ]
 
     const [deployer] = await ethers.getSigners()
