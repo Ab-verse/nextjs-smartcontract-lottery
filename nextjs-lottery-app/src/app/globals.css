@@ -2,3 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+    html {
+      @apply scroll-smooth;
+    }
+
+    body {
+      @apply  h-full scrollbar-thumb-slate-600 scrollbar-track-slate-800 scrollbar-thin
+    }
+  }

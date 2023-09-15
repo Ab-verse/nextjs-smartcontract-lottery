@@ -147,21 +147,20 @@ const Main = ({ isConnected, chainId }) => {
   }
 
   return (
-    <div className=" ">
+    <div className="mt-4">
       <button
-        className="my-5 px-3 py-2 bg-blue-600 text-white rounded-lg font-bold"
+        className="my-5 px-3 py-2 border border-solid border-green-600 bg-green-100 hover:bg-white text-green-600 rounded-2xl font-medium"
         onClick={EnterLottery}
       >
         {isLoading ? "Processing..." : "Enter Lottery"}
       </button>
-
       <div>
-        <div>
-          <span className="font-bold">Number of Players:</span>{" "}
+        <div className="pt-4">
+          <span className="font-semibold ">Number of Players:</span>{" "}
           {numberOfPlayers}
         </div>
         <div>
-          <span className="font-bold">Recent Winner:</span> {recentWinner}
+          <span className="font-semibold">Recent Winner:</span> {recentWinner}
         </div>
       </div>
     </div>

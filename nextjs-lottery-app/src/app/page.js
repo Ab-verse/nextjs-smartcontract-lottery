@@ -8,7 +8,7 @@ import { contractAddress, abi } from "@/utils/utils";
 
 function Lottery() {
   return (
-    <div>
+    <div className="">
       <NotificationProvider>
         <Header contractAddress={contractAddress} abi={abi} />
       </NotificationProvider>
