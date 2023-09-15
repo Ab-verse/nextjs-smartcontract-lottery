@@ -6,7 +6,7 @@ The Lottery DApp is a Solidity-based Ethereum DApp that allows users to particip
 
 - Users can enter the lottery by sending Ether.
 - Random winners are selected using Chainlink VRF.
-- Periodic raffle runs based on time intervals.
+- Periodic raffle runs based on time intervals (120sec).
 - Keeper Network compatibility ensures the contract's continuous operation.
 
 ## Deployed on Versel
