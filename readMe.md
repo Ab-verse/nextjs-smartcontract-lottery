@@ -9,10 +9,25 @@ The Lottery DApp is a Solidity-based Ethereum DApp that allows users to particip
 - Periodic raffle runs based on time intervals (120sec).
 - Keeper Network compatibility ensures the contract's continuous operation.
 
+## Deployed on Sepolia
+Here it is,
+
+[Sepolia Etherscan](https://sepolia.etherscan.io/address/0x66945f9f1dfab74599ae39e6dd681ada5dc3893a)
+
 ## Deployed on Versel
 Here it is, 
 
 [Lottery Web3 DApp](https://raffle-dapp-hardhat-nextjs.vercel.app/)
+
+## Tools and Technologies Used
+```
+    Sepolia
+    Solidity
+    Chainlink
+    Hardhat
+    NextJS
+    Tailwind CSS
+```
 
 
 ## Thank you!
