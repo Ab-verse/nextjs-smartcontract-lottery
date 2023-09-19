@@ -108,13 +108,43 @@ const Header = () => {
         </button>
       </nav>
       <div className="px-10 py-10">
-        <p className="text-2xl">
-          {isConnected
-            ? chainId === "11155111"
-              ? `Connected Wallet Address Is: ${walletAddress}`
-              : "Please switch to supported chain. The Supported chain is Sepolia!"
-            : "Connect to MetaMask!"}
-        </p>
+        <div className="flex justify-between items-center">
+          <p className="text-2xl">
+            {isConnected
+              ? chainId === "11155111"
+                ? `Connected Wallet Address Is: '${walletAddress}'`
+                : `Please switch to supported chain and refresh the screen. The Supported chain is 'Sepolia!'`
+              : "Connect to MetaMask!"}
+          </p>
+          <div className="flex justify-between items-center">
+            <a
+              href="https://sepolia.etherscan.io/address/0x66945f9f1dfab74599ae39e6dd681ada5dc3893a"
+              target="_blank"
+              rel="noopener noreferrer"
+              className=""
+            >
+              <Image
+                src="/assets/etherScan.svg"
+                width={100}
+                height={100}
+                alt="etherscan image"
+              />
+            </a>
+            <a
+              href="https://github.com/Ab-verse/raffle-dapp-hardhat-nextjs"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="  ml-5"
+            >
+              <Image
+                src="/assets/gitHub.png"
+                width={100}
+                height={100}
+                alt="github image"
+              />
+            </a>
+          </div>
+        </div>
         <div className=" bg-sky-100 mt-5 rounded-tl rounded-br overflow-hidden flex items-center">
           <Image
             src="/assets/winBig.png"

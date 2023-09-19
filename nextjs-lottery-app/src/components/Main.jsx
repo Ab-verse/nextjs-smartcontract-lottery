@@ -149,7 +149,7 @@ const Main = ({ isConnected, chainId }) => {
   return (
     <div className="mt-4">
       <button
-        className="my-5 px-3 py-2 border border-solid border-green-600 bg-green-100 hover:bg-white text-green-600 rounded-2xl font-medium"
+        className="my-10 px-3 py-2 border border-solid border-green-600 bg-green-100 hover:bg-white text-green-600 rounded-2xl font-medium"
         onClick={EnterLottery}
       >
         {isLoading ? "Processing..." : "Enter Lottery"}
